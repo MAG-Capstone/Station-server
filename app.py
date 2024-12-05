@@ -1,4 +1,4 @@
-from flask import Flask, send_file, request
+from flask import Flask, send_file, request, jsonify
 import hashlib
 import qrcode
 import time
@@ -39,5 +39,7 @@ def generate_qr_code(station_id, secret_key):
 
     # Send the image as a response with the correct MIME type
     return send_file(img_io, mimetype='image/png')
+    #return jsonify({"qr_data:"qr_data})
 
-
+def send_qr_to_main(data):
+    #TODO: Connect to main server
